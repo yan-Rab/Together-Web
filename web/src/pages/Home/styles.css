@@ -1,0 +1,114 @@
+.home-container{
+    width: 100%;
+    height: 100%;
+}
+
+.home-container header{
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center; 
+}
+
+.home-container header h1{
+    color: #4084B5;
+    font-family: Roboto;
+}
+
+.home-container header img{
+    max-width: 160px;
+    max-height: 110px;
+   
+}
+
+.home-container main {
+    display: flex;
+    margin-top: 30px;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.home-container main img{
+    max-width: 500px;
+    max-height: 500px;
+    width: 100%;
+}
+
+.home-container main legend{
+    display: flex;
+   
+    align-items: center;
+    flex-wrap: wrap;
+    width: 400px;
+    padding: 20px;
+
+}
+
+.home-container main legend p{
+    font-family: Roboto;
+    width: 100%;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 50px;
+    color: #4084B5;
+
+}
+
+.home-container main legend sub{
+    color: rgb(155, 153, 153);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 27px;
+    font-family: Arial, Helvetica, sans-serif;
+   
+}
+
+.home-container main legend h4{
+    margin-right: 20px;
+    font-size: 17px;
+    padding-left: 20px;
+}
+
+.home-container main legend a {
+    display: flex;
+    
+    align-items: center;
+    height: 60px;
+    margin-top: 20px;
+    font-size: 18;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    color: white;
+    margin:left;
+    background-color: #5CBCF2;
+    transition: filter;
+    transition-duration: 0.6s;
+}
+
+.home-container main legend a:hover{
+    filter: brightness(93%)
+}
+
+.home-container main legend span{
+    display: flex;
+    width: 50px;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: #9ED2EF;
+    height: 50px;
+    border-radius: 8px 0px 0px 8px;
+}
+
+.home-container main legend span img{
+    width: 30px;
+    height: 30px;
+}
+
