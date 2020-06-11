@@ -26,7 +26,9 @@ const Dropzone: React.FC<Props> = ({onFileUploaded}) => {
     return(
         <div className="dropzone" {...getRootProps()}>
             <input {...getInputProps()} accept = "image/*" />
-            {selectedFileUrl ? <img src = {selectedFileUrl} alt = "imagem do estabelecimento"  /> 
+            {selectedFileUrl ? <img src = {selectedFileUrl} 
+            style = {{width:'100%',height:'100%', objectFit: 'cover'}}
+            alt = "imagem do estabelecimento" /> 
             : (
                 <p>
                 <img src={upload} alt="upload" style = {{width: "40px", height:"40px",marginBottom:'10px'}} />

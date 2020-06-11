@@ -39,8 +39,8 @@
 }
 
 .home-container main legend{
-    display: flex;
-   
+    display:grid;
+    gap: 20px;
     align-items: center;
     flex-wrap: wrap;
     width: 400px;
@@ -61,10 +61,10 @@
 
 .home-container main legend sub{
     color: rgb(155, 153, 153);
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 600;
     line-height: 27px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Roboto;
    
 }
 
