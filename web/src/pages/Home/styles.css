@@ -35,6 +35,7 @@
 .home-container main img{
     max-width: 500px;
     max-height: 500px;
+    
     width: 100%;
 }
 
@@ -61,8 +62,8 @@
 
 .home-container main legend sub{
     color: rgb(155, 153, 153);
-    font-size: 18px;
-    font-weight: 600;
+    font-size: 19px;
+    font-weight: 500;
     line-height: 27px;
     font-family: Roboto;
    

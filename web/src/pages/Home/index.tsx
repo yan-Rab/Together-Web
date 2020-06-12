@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../assets/logomarcaAlt.png';
-import unidos from '../../assets/unidos.png';
+import uniao from '../../assets/jovens.png';
 import login from '../../assets/login.png';
 import { Link } from 'react-router-dom';
 import './styles.css';
@@ -30,7 +30,7 @@ const Home = () => {
                     
                 </legend>
 
-                <img src = {unidos} alt = "Unidos" />
+                <img src = {uniao} alt = "Unidos" />
 
             </main>
         </div>
