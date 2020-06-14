@@ -94,21 +94,22 @@ const Form = () => {
         event.preventDefault();
         const {title, email, whatsapp} = formData;
         const {city, uf} = dataSelects;
-        const latitude = selectedPosition[0]
-        const longitude = selectedPosition[1];
-        const pointItems = items;
-
-        const data = {
-            title,
-            email,
-            whatsapp,
-            city,
-            uf,
-            latitude,
-            longitude,
-            items: pointItems
-        }
+        const [latitude, longitude] = selectedPosition;
         
+
+        const data = new FormData();
+        data.append('title', title);
+        data.append('email', email);
+        data.append('whatsapp', whatsapp);
+        data.append('city', city);
+        data.append('uf', uf);
+        data.append('latitude', String(latitude));
+        data.append('longitude', String (longitude));
+        data.append('items', items.join(','));
+        if(selectedFile){
+            data.append('image', selectedFile)
+        }
+            
        await api.post('/point', data);
        
         
@@ -116,7 +117,7 @@ const Form = () => {
 
     return(
         <form onSubmit = {handleSubmit} >
-            {console.log(positionCurrent)}
+            
             <Dropzone onFileUploaded = {setSelectedFile} />
             <div className="group-input">
 
@@ -174,7 +175,7 @@ const Form = () => {
             <div className = "container-but-submit">
                 <button className = "submit" type = "submit">
                     <span><IoIosAdd style = {{width: "35px", height: "35px"}}/></span>
-                    <h4>Cadastrar ponto</h4>
+                    <i style = {{paddingLeft: '30px'}}>Cadastrar ponto</i>
                 </button>
             </div>
             

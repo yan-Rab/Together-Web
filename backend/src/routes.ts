@@ -11,8 +11,9 @@ import multerConfig from './config/multer';
 const itemsController = new Items();
 const pointsController = new Points();
 
-routes.get('/items', multer(multerConfig).single('image') ,itemsController.index)
+routes.get('/items',itemsController.index)
 
-routes.post('/point', pointsController.create);
+routes.post('/point', multer(multerConfig).single('image')  ,pointsController.create);
+
 
 export default routes;

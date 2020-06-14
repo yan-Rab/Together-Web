@@ -19,7 +19,7 @@ const multerConfig = {
     }),
 
     limits: {
-        fileSize: 2 * 1024 * 1024
+        fileSize: 4 * 1024 * 1024
     },
 
     fileFilter: (request: Request, file: File, callback: FileFilterCallback) => {

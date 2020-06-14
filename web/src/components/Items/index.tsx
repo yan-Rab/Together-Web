@@ -53,7 +53,7 @@ const Items: React.FC<Props> = ({setPointItems, pointItems}) => {
                 <li onClick = {() => handleSelectedItems(item.id) } 
                 className = {pointItems.includes(item.id) ? 'selected' : 'item'} 
                 key = {String(item.id)} id = "item">
-                    <img src = {`${item.image_url}`} />
+                    <img src = {`${item.image_url}`} alt = "item"/>
                     <p>{item.title}</p>
                 </li>
             ))}

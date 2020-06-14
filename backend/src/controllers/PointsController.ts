@@ -1,15 +1,30 @@
 import knex from '../database/connection';
 import { Request, Response }  from 'express';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import Auth from '../auth/Auth';
 
+function generateToken(props: {}){
+    return jwt.sign(props,Auth.secret, {
+         expiresIn: 86400
+     } )
+ }
 class Points{
 
+    
+
+
     async create(request: Request , response: Response){
-        const {title, city, uf, email, whatsapp, longitude, latitude, items } = request.body;
+        const {title, city, uf, email, whatsapp, longitude, latitude, items, hash} = request.body;
 
         const trx = await knex.transaction();
-      
+
+        const image = request.file.filename;
+        const password = await bcrypt.hash(hash, 10);
+
         const dataPoint = {
-            image : request.file.filename, 
+            password,
+            image,
             title, city, uf, email, whatsapp, longitude, latitude,
         }
 
@@ -25,10 +40,12 @@ class Points{
         await trx('items_point').insert(items_point);
 
         await trx.commit();
-
-        return response.json({point: point[0], ...dataPoint, items });
+      
+        return response.send({point: point[0], ...dataPoint, token: generateToken({id: point[0]}) ,items });
 
     }
+
+   
 }
 
 export default Points;

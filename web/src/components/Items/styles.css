@@ -13,9 +13,9 @@
  .group-items .item{
     margin:15px;
     flex-direction: column;
-    height: 90px;
+    height: 140px;
     border-radius: 10px;
-    width: 100px;
+    width: 140px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,9 +27,9 @@
 .group-items .selected{
     margin: 15px;
     flex-direction: column;
-    height: 90px;
+    height: 140px;
     border-radius: 10px;
-    width: 100px;
+    width: 140px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,12 +42,14 @@
     margin-top: 10px;
     width:70px;
     height: 70px;
+    margin-bottom: 10px;
 }
 
 .group-items .selected img{
     margin-top: 10px;
     width: 70px;
     height: 70px;
+    margin-bottom: 10px;
 }
 
 
