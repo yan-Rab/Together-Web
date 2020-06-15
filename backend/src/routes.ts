@@ -15,5 +15,6 @@ routes.get('/items',itemsController.index)
 
 routes.post('/point', multer(multerConfig).single('image')  ,pointsController.create);
 
+routes.post('/auth', pointsController.authentication);
 
 export default routes;

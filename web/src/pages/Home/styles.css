@@ -23,6 +23,15 @@
    
 }
 
+
+.home-container header .link-login i{
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 400;
+    margin-right: 10px;
+
+}
+
 .home-container main {
     display: flex;
     margin-top: 30px;
@@ -78,6 +87,7 @@
 .home-container main legend a {
     display: flex;
     width: 100%;
+    justify-content: left;
     align-items: center;
     height: 55px;
     margin-top: 20px;
@@ -88,7 +98,7 @@
     border-radius: 8px;
     color: white;
     margin:left;
-    background-color: #5CBCF2;
+    background-color: #3fa0f0;
     transition: filter;
     transition-duration: 0.6s;
 }
@@ -103,7 +113,7 @@
     padding: 5px;
     justify-content: center;
     align-items: center;
-    background-color: #9ED2EF;
+    background-color: #8abcdd;
     height: 55px;
     border-radius: 8px 0px 0px 8px;
 }

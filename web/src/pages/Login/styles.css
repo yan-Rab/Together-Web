@@ -1,12 +1,35 @@
 .login-container{
     width: 100vw;
     display: flex;
+    
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: baseline;
-    height: 100vh;
+   
     border-radius: 4px;
-    background-color: #F0F0F5;
+    background-color: rgb(224, 224, 252);
+}
+
+.login-container .infors {
+    width: 550px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-container .infors p {
+    margin-top: 20px;
+    font-size: 35px;
+    font-family: Roboto;
+    color: #5578c4;
+    font-weight: bold;
+}
+
+.login-container .infors img{
+    margin-top: 40px;
+    width: 100%;
+    height: 320px;
 }
 
 .login-container form{
@@ -15,14 +38,10 @@
     font-family: Roboto;
     color: #323232;
     display: flex;
-    gap: 20px;
     justify-content: center;
-    
     max-width: 400px;
-    
     padding: 30px;
     flex-direction: column;
-    
     border-radius: 8px;
 }
 
@@ -52,19 +71,19 @@
 .login-container form button{
     border: none;
     margin-top: 20px;
-    height: 45px;
+    height: 50px;
     font-family: Roboto;
-    font-size: 18px;
+    font-size: 20px;
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
     color: white;
-    background-color: #0099ff;
+    background-color: #2982d4;
     border-radius: 8px;
   
     outline: none;
-    transition: filter 0.6s;
+    transition: filter all 0.6s;
 }
 
 .login-container form button:hover{

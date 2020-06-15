@@ -11,16 +11,7 @@
     justify-content: space-around;
     align-items: center;
 }
-.points-container header span{
-    padding: 20px;
-    display: flex;
-    width: 230px;
-    justify-content: space-between;
-    align-items: center;
-    color: #4084B5;
-    font-size: 18px;
-    font-family: Ubuntu;
-}
+
 
 .points-container header img{
     max-width: 160px;
@@ -48,6 +39,7 @@
 .points-container main{
     display: flex;
     height: 100%;
+    padding: 20px;
     width: 100%;
     margin-top: 30px;
     margin-bottom: 20px;
@@ -60,7 +52,7 @@
    
     display: flex;
     max-width: 650px;
-    width: 600px;
+   
     min-width: 220px;
     flex-wrap: wrap;
     justify-content: center;

@@ -1,9 +1,10 @@
 import React from 'react';
 import logo from '../../assets/logomarcaAlt.png';
 import './styles.css';
-import {BsBoxArrowInLeft} from 'react-icons/bs';
 
-import { Link } from 'react-router-dom';
+
+
+import LinkHome from '../../components/LinkHome/index';
 
 import Form from '../../components/Form/index';
 
@@ -13,13 +14,10 @@ const Points = () => {
 
         <div className = "points-container">
             <header>
+                
                 <img src = {logo} alt = "Hope Angels" />
-                <Link to = "/" style = {{textDecoration: "none"}}>
-                    <span>
-                        <BsBoxArrowInLeft style = {{width: "30px", height: "30px"}} /> 
-                        Voltar para Home
-                    </span>
-                </Link>
+                <LinkHome />
+
             </header> 
 
             <main>
