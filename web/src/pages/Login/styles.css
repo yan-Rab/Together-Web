@@ -41,6 +41,7 @@
     justify-content: center;
     max-width: 400px;
     padding: 30px;
+   
     flex-direction: column;
     border-radius: 8px;
 }

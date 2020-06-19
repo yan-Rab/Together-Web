@@ -4,14 +4,23 @@ import React, {FormEvent, useState, ChangeEvent} from 'react';
 import {DebounceInput} from 'react-debounce-input';
 import logo from '../../assets/logomarcaAlt.png';
 import LinkHome from '../../components/LinkHome/index';
+
 import svg from '../../assets/login.svg';
+
 import './styles.css';
+
+import 'react-toastify/dist/ReactToastify.css';
+import {ToastContainer} from 'react-toastify';
+
+
 
 import api from '../../services/api';
 import {useHistory} from 'react-router-dom';
+
 interface AuthResponse{
     point: number,
     token: string,
+    res: Response,
 }
 
 
@@ -32,14 +41,20 @@ const Login = () => {
         event.preventDefault();
 
         const { email, password } = formData;
+        
+        try{
+            const response = await api.post<AuthResponse>('/auth', {email, password});
 
-        const auth = await api.post<AuthResponse>('/auth', {email, password});
+            if(response.data.token){
+            
+                localStorage.setItem("token", response.data.token);
+                localStorage.setItem("pointId", String(response.data.point));
+                
+                navigation.push('/MyPoint')
 
-        if(auth.data.token){
-            localStorage.setItem("token", auth.data.token);
-            localStorage.setItem("pointId", String(auth.data.point));
-            alert('Ponto de arrecadação cadastrado!')
-            navigation.push('/MyPoint')
+            }
+        }catch(error){
+            return error;
         }
     }
     
@@ -60,18 +75,18 @@ const Login = () => {
                 <img src={logo} alt="Together"/>
                 <label htmlFor="email">E-mail</label>
                 <DebounceInput name = "email" type = "email" 
-                debounceTimeout = {800} onChange = {(event) => handleSelectedValues(event)} />
+                debounceTimeout = {800} onChange = {(event) => handleSelectedValues(event)} required/>
 
                 <label htmlFor="password">Senha</label>
                 <DebounceInput name = "password" type = "password" 
-                debounceTimeout = {800} onChange = {(event) => handleSelectedValues(event)} />
+                debounceTimeout = {800} onChange = {(event) => handleSelectedValues(event)} required/>
 
                 <button type = "submit">
                     Logar 
                 </button>
                 
             </form>
-            
+            <ToastContainer limit = {1} className = "toast-container" />
         </div>
       
     )

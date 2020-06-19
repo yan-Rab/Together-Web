@@ -3,3 +3,55 @@
 body{
     background-color: #F0F0F5;
 }
+
+
+.toast-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.toast-success{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    align-items: center;
+    border-radius: 6px;
+    background-color: #0099ff;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    max-width: 230px;
+}
+
+.toast-error{
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    background-color: #ee377d;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    flex-wrap: wrap;
+    max-width: 230px;
+}
+
+.icon-text{
+    justify-content: left;
+    display: flex;
+    align-items: center;
+
+}
+
+.icon-text img{
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+}

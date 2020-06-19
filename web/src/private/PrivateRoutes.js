@@ -12,3 +12,16 @@ export const PrivateMyPoint = ({component: Component,...rest}) => (
         )
     )} />
 )
+
+export const PrivateLogin = ({component: Component, ...rest}) => (
+    <Route {...rest} render = {props => (
+        authLogin() ? (
+            <Redirect to = {{pathname: '/MyPoint', state: { from: props.location}}} />
+        ): (
+            <Component {...props} />
+        )
+    )} />
+)
+
+
+

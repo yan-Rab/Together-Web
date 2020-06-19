@@ -4,6 +4,10 @@ import knex from '../database/connection';
 class Items{
     async index(request: Request , response: Response){
         const items = await knex('items').select('*');
+        
+        if(!items){
+            return response.status(502).json({message: "Internal Server error!"})
+        }
 
         const serializedItems = items.map(item => {
             return {

@@ -11,6 +11,7 @@ app.use(cors());
 app.use(urlencoded({extended: true}));
 
 app.use(morgan('dev'));
-app.use('/tmp', express.static(path.resolve(__dirname, '..','temp')));
+app.use('/tmp', express.static(path.resolve(__dirname, '..','temp',)));
+
 app.use(routes);
 app.listen(3333);

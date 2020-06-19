@@ -10,11 +10,13 @@ const Home = () => {
         <div className = "home-container">
           
             <header>
+                
                 <img src = {logo} alt = "Hope Angels" />
                 <Link className = "link-login" style = {{textDecoration: 'none'}} to = "/Login">
                     <i>Meu Ponto</i>
                     <BsBoxArrowInRight style ={{width: '30px', height:'30px'}}/>
                 </Link>
+
             </header>
 
             <main>

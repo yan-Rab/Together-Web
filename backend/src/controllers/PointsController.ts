@@ -14,7 +14,50 @@ function generateToken(props: {}){
      id: number,
      password: string,
  }
+
+ interface Points{
+     image: string,
+     title: string,
+     email:  string,
+     latitude: number,
+     longitude: number,
+     whatsapp: string,
+     city: string,
+     uf: string,
+ }
+
+ interface Items{
+     id: number,
+     title: string,
+     image: string
+ }
 class Points{
+
+
+    async show(request: Request, response: Response){
+        const {id} = request.params;
+
+        const point = await knex.select('*').from<Points>('points').where('id', id).first();
+        const items = await knex('items').join('items_point', 'items.id','=','items_point.id_item')
+        .where('items_point.id_point', id).select('*');
+
+        const serializedItems = items.map((item: Items) => {
+            return{
+                id: item.id,
+                title: item.title,
+                image_url: `http://localhost:3333/tmp/${item.image}`
+            }
+        })
+        const image_uri = `http://localhost:3333/tmp/uploads/${point?.image}`;
+        const dataPoint = {
+            point,
+            serializedItems,
+            image_uri
+        }
+        return response.json(dataPoint);
+
+    }
+
 
     async create(request: Request , response: Response){
         const {title, city, uf, email, whatsapp, longitude, latitude, items, hash} = request.body;
@@ -52,10 +95,6 @@ class Points{
     async authentication(request: Request,response: Response){
         const {email, password} = request.body;
 
-        if(!password){
-            return response.json({message: "Password is not void!"})
-        }
-
         const points = await knex<ResponseAuth>('points').select('*').where("email", email).first();
         
         if(!points){
@@ -67,7 +106,7 @@ class Points{
         }
         const point = points.id;
         const token = generateToken({id: points.id});
-        return response.json({point, token});
+        return response.json({message: 'Entrando...',point, token});
     }
 
    

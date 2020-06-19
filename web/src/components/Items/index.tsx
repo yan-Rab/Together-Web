@@ -33,13 +33,17 @@ const Items: React.FC<Props> = ({setPointItems, pointItems}) => {
             setPointItems([...pointItems, id])
         }
 
-        console.log(pointItems)
+      
     }
 
     useEffect(() => {
+       
         api.get<ItemsResponse[]>('items').then(response => {
             setItems(response.data)
+        }).catch(response => {
+            return alert('502 Internal Server Error')
         })
+        
 
        
     },[])

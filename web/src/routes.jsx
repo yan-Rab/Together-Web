@@ -7,14 +7,14 @@ import Points from './pages/Points/index';
 import Login from './pages/Login/index';
 import MyPoint from './pages/MyPoint/index';
 
-import {PrivateMyPoint} from './private/PrivateRoutes';
+import {PrivateMyPoint, PrivateLogin} from './private/PrivateRoutes';
 
 const Routes = () => {
     return(
         <BrowserRouter>
             <Route exact path = "/" component = {Home} />
             <Route exact path = "/Points" component = {Points} />
-            <Route exact path = "/Login" component = {Login} />
+            <PrivateLogin exact path = '/Login' component = {Login}/>
             <PrivateMyPoint exact path = '/MyPoint' component = {MyPoint} />
         </BrowserRouter>
     )

@@ -1,0 +1,14 @@
+.but-deslog{
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    color: white;
+    font-family: Roboto;
+    font-size: 18px;
+    height: 40px;
+    background-color: rgb(20, 110, 184);
+    border: none;
+    width: 160px;
+}

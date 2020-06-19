@@ -27,7 +27,8 @@ const multerConfig = {
             'image/png',
             'image/jpg',
             'image/gif',
-            'image/pjpeg'
+            'image/pjpeg',
+            
         ]
 
         if(AllMimeTypes.includes(file.mimetype)){

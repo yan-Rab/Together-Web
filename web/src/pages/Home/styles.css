@@ -5,6 +5,7 @@
 
 .home-container header{
     width: 100%;
+    padding: 20px;
     display: flex;
     margin-top: 20px;
     flex-wrap: wrap;
@@ -20,11 +21,12 @@
 .home-container header img{
     max-width: 160px;
     max-height: 110px;
-   
+    margin-bottom: 10px;
 }
 
 
 .home-container header .link-login i{
+    margin-top: 10px;
     font-size: 20px;
     font-family: Roboto;
     font-weight: 400;

@@ -48,7 +48,7 @@ const Form = () => {
             setPositionCurrent([position.coords.latitude, position.coords.longitude]);
             
         })
-    })
+    },[])
 
 
     function handleFormValues(event: ChangeEvent<HTMLInputElement>){
@@ -114,7 +114,7 @@ const Form = () => {
         }
             
        await api.post('/point', data);
-       alert("Ponto de arrecadação cadastrado!")
+       
        navigation.push('/');
     }
 
@@ -140,7 +140,7 @@ const Form = () => {
 
                 <div className= "inputs">
                     <label htmlFor="email">E-mail</label>
-                    <DebounceInput debounceTimeout = {800} type="text" id="email" name = "email"onChange = {handleFormValues} />
+                    <DebounceInput debounceTimeout = {800} type="email" id="email" name = "email"onChange = {handleFormValues} />
                 </div>
 
                 <div className= "inputs">
@@ -151,7 +151,8 @@ const Form = () => {
             </div>
            
             <h3>Informe o endereço no mapa</h3>
-            <Map center = {positionCurrent} zoom = {15} onclick = {handleSelectedPosition} >
+
+            <Map center = {positionCurrent} zoom = {14} onclick = {handleSelectedPosition} >
                 <TileLayer attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 
