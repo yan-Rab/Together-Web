@@ -7,7 +7,10 @@ Nosso objetivo é diminuir o espaço entre doadores e arrecadadores e assim muda
 <img src = './web/src/assets/jovens.png' width = '400px' height = '350px'>
 
 <h2>Tecnologias Utilizadas no desenvolvimento do projeto : </h2> 
-- Node.js/Express
-- React.js
-- Knex (Query Builder)
-- Sqlite3
+<ul>
+  <li>Node.js/Express</li>
+  <li>React.js</li>
+  <li>Knex (Query Builder)</li>
+  <li>Sqlite3</li>
+
+</ul>
