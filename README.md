@@ -6,4 +6,8 @@ Nosso objetivo é diminuir o espaço entre doadores e arrecadadores e assim muda
 
 <img src = './web/src/assets/jovens.png' width = '400px' height = '350px'>
 
-##O projeto está sendo desenvolvido utilizando Typescript, Node.js/Express, Knex como Query Builder e React.js
+<h2>Tecnologias Utilizadas no desenvolvimento do projeto : </h2> 
+- Node.js/Express
+- React.js
+- Knex (Query Builder)
+- Sqlite3
