@@ -5,14 +5,16 @@ import api from '../../services/api';
 
 import './styles.css';
 
-import Dropzone from '../../components/Dropzone/index';
 import {Map, TileLayer, Marker} from 'react-leaflet';
+
+import ModalImage from './Modals/ModalImage';
+import ModalInforsPoint from './Modals/ModalInforsPoint';
+
 interface PointsResponse{
     image_uri: string,
     point: {
         title: string,
         email:  string,
-     
         latitude: number,
         longitude: number,
         whatsapp: string,
@@ -34,13 +36,11 @@ interface ItemData{
         image_url: string,
 }
 
-
-
 const MyPoint = () => {
  
     const [image, setImage] = useState('0');
 
-    const [selectedFile, setSelectedFile] = useState<File>();
+    const [UpdateImage, setUpdateImage] = useState<File>()
 
     const [inforsPoint, setInforsPoint] = useState({
         title: '',
@@ -54,6 +54,11 @@ const MyPoint = () => {
     })
 
     const [items, setItems] = useState([{} as ItemData]);
+
+
+    useEffect(() => {
+        console.log(UpdateImage)
+    }, [UpdateImage])
 
     useEffect(() => {
         const id = localStorage.getItem("pointId");
@@ -76,7 +81,7 @@ const MyPoint = () => {
 
                 <span>
                     <legend>{inforsPoint.title}</legend>
-                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#ModalImage">
                         Editar
                     </button>
                 </span>
@@ -84,41 +89,13 @@ const MyPoint = () => {
                 <img src = {`${image}`} alt=""/>
 
             </section>
-
-                <div className="modal fade" id="exampleModal"  
-                role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                
-                <div className="modal-dialog">
-                    
-                    <div className="modal-content">
-                    
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        
-                        <div className="modal-body">
-                            <Dropzone  onFileUploaded = {setSelectedFile} />
-                        </div>
-
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="button" className="btn btn-primary">Salvar alterações</button>
-                        </div>
-                        
-                        </div>
-                
-                    </div>
-
-                </div>
-
+            <ModalImage setImagePoint = {setUpdateImage} />
+            <ModalInforsPoint />
             <section>
 
                 <span>
                     <legend>Dados</legend>
-                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#ModalInforsPoint">
                         Editar
                     </button>
                 </span>

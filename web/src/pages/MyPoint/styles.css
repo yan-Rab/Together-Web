@@ -10,7 +10,7 @@
     display: flex;
     padding: 10px;
     justify-content: space-evenly;
-    align-items: center;
+  
     flex-wrap: wrap;
 }
 
@@ -35,10 +35,14 @@
     justify-content: space-between;
     width: 100%;
     padding: 15px;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 2px rgb(127, 167, 219);
+    background-color: rgb(127, 167, 219);
 }
 
 .container-my-point  section legend{
-    color: rgb(27, 78, 146);
     font-family: Roboto;
 }
 
@@ -47,10 +51,10 @@
     justify-content: space-around;
     align-items: center;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     width: 100%;
     background-color: white;
-    border: solid 1px rgb(218, 213, 213)
+ 
 
 }
 
@@ -72,14 +76,15 @@
 .container-my-point header section .container-data .group-data strong{
     font-size: 20px;
     font-family: Roboto;
-    color:  rgb(47, 106, 184);
+    color:  rgb(66, 68, 70);
     ;
 }
 
 .container-my-point header section .container-data .group-data p{
     margin-top: 10px;
-    font-family: Ubuntu;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
+    color: rgb(88, 88, 88);
 }
 
 
@@ -90,7 +95,7 @@
     display: flex;
     padding: 10px;
     justify-content: space-evenly;
-    align-items: center;
+    
     flex-wrap: wrap;
 }
 
@@ -102,6 +107,8 @@
     border-radius: 8px;
     margin-bottom: 20px;
 }
+
+
 
 
 

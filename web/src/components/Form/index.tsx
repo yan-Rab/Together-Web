@@ -11,6 +11,7 @@ import {IoIosAdd} from 'react-icons/io';
 import Dropzone from '../Dropzone/index';
 import api from '../../services/api';
 import {useHistory} from 'react-router-dom';
+
 interface IBGEUfs{
     sigla: string;
 }

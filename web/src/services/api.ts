@@ -3,7 +3,6 @@ import axios, {AxiosResponse, AxiosError} from 'axios';
 import  Toasts from '../components/Toasts/index';
 
 import iconError from '../assets/error.png';
-import iconSuccess from '../assets/tick.png';
 
 const api = axios.create({baseURL: "http://localhost:3333"});
 
