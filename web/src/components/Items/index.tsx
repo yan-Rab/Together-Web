@@ -50,7 +50,7 @@ const Items: React.FC<Props> = ({setPointItems, pointItems}) => {
     
     return (
         <>  
-            <h3>Selecione os items que seu ponto arrecada</h3>
+            <h3 style = {{fontSize: '20px'}}>Selecione os items que seu ponto arrecada</h3>
             <ul className = "group-items">
              
             {items.map(item => (

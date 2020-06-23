@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropzone from '../../../components/Dropzone/index';
+import Dropzone from '../../../../components/Dropzone/index';
 import { DebounceInput } from 'react-debounce-input';
 interface Props{
   setImagePoint: (image: File) => void
@@ -35,7 +35,7 @@ const ModalImage: React.FC<Props> = ({setImagePoint}) => {
               </div>
 
               <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                 
                   <button type="button" className="btn btn-primary">Salvar alterações</button>
               </div>
               

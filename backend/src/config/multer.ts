@@ -27,6 +27,7 @@ const multerConfig = {
             'image/png',
             'image/jpg',
             'image/gif',
+            'image/jpeg',
             'image/pjpeg',
             
         ]

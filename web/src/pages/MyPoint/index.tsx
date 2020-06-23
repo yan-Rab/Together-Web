@@ -1,14 +1,18 @@
 import React, {useEffect, useState} from 'react';
-
 import LogOut from '../../components/LogOut/index';
 import api from '../../services/api';
-
 import './styles.css';
 
-import {Map, TileLayer, Marker} from 'react-leaflet';
+import LinkHome from '../../components/LinkHome/index';
 
-import ModalImage from './Modals/ModalImage';
-import ModalInforsPoint from './Modals/ModalInforsPoint';
+import ImageData from './components/ImageData';
+import InforsPoint from './components/InforsPoint';
+import MapPoint from './components/MapPoint';
+import ItemsPoint from './components/ItemsPoint';
+
+import ModalImage from './components/Modals/ModalImage';
+import ModalInforsPoint from './components/Modals/ModalInforsPoint';
+import ModalItems from './components/Modals/ModalItems';
 
 interface PointsResponse{
     image_uri: string,
@@ -72,111 +76,56 @@ const MyPoint = () => {
         })
             
     }, [])
+
+    function SerializedItems(){
+        const serializedItems = items.map(item => item.id);
+        return serializedItems;
+    }
    
     return(
         <div className = "container-my-point">
+       
+                <header>
+                    <span>
+                        <LinkHome />
+                        <LogOut />
+                    </span>
+                   
+                  
+                    
+                </header>
 
-        <header>
-            <section>
+                <div className = 'infors-primary'>
+                    <ImageData PointTitle = {inforsPoint.title} Pointimage = {image} />
+                    <ModalImage setImagePoint = {setUpdateImage} />
+                    
 
-                <span>
-                    <legend>{inforsPoint.title}</legend>
-                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#ModalImage">
-                        Editar
-                    </button>
-                </span>
-               
-                <img src = {`${image}`} alt=""/>
+                    <InforsPoint DataPoint = {inforsPoint} />
+                    <ModalInforsPoint />
+            
+                </div>
+            
+                <div className = 'infors-secundary'>
+                    
+                    <MapPoint latitude = {inforsPoint.latitude} longitude = {inforsPoint.longitude} />
+                    
+                    <section>
+                        <span>
+                            <legend>Items</legend>
+                            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#ModalItems">
+                                Editar
+                            </button>
+                        </span>
 
-            </section>
-            <ModalImage setImagePoint = {setUpdateImage} />
-            <ModalInforsPoint />
-            <section>
-
-                <span>
-                    <legend>Dados</legend>
-                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#ModalInforsPoint">
-                        Editar
-                    </button>
-                </span>
-
-                <div className = "infors-point">
-
-                  <div className = "container-data">
-                      <div className="group-data">
-                        <strong>E-mail</strong>
-                        <p>{inforsPoint.email}</p>
-                      </div>
-
-                      <div className="group-data">
-                        <strong>whatsapp</strong>
-                        <p>{inforsPoint.whatsapp}</p>
-                      </div>
-                                        
-                  </div>
-
-                  <div className = "container-data">
-
-                      <div className = "group-data">
-                        <strong>Cidade</strong>
-                        <p>{inforsPoint.city}</p>
-                      </div>
-                      
-                      <div className = "group-data">
-                        <strong>Estado</strong>
-                        <p>{inforsPoint.uf}</p>
-                      </div>
-                      
-                  </div>
-
+                        <ItemsPoint itemsPoint = {items}/>
+                        <ModalItems itemsPoint = {SerializedItems()}/>
+                    </section>
                     
                 </div>
-               
-            </section>
-    
-        </header>
+           
+       
 
-        <main>
-
-            <section>
-                <span>
-                    <legend>Localização</legend>
-                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Editar
-                    </button>
-                </span>
-                <Map className = "leaflet-container" center = {[-3.8221074,-38.5585407]} zoom = {14}>
-                    <TileLayer attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                    
-                    <Marker position = {[-3.8221074,-38.5585407]} />
-                </Map>
-
-            </section>
-
-            <section>
-                <span>
-                    <legend>Items</legend>
-                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Editar
-                    </button>
-                </span>
-
-                <ul className = "group-items">
-                    
-                    {items.map(item => (
-
-                        <li className = "item" key = {String(item.id)} id = "item">
-                            <img src = {`${item.image_url}`} alt = "item"/>
-                            <p>{item.title}</p>
-                        </li>
-                    ))}
-
-                </ul>
-            </section>
-            
-        </main>
-            <LogOut />
+           
         </div>
     )
 }

@@ -1,6 +1,8 @@
 import React, {useEffect, useState, ChangeEvent} from 'react';
 import {DebounceInput} from 'react-debounce-input';
 import axios from 'axios';
+import {IoLogoWhatsapp} from 'react-icons/io';
+import {MdEmail} from 'react-icons/md';
 
 interface IBGEUfs{
   sigla: string;
@@ -33,7 +35,7 @@ const ModalInforsPoint = () => {
         setUfs(ufs)
         
     })
-  })
+  }, [])
 
   useEffect(() => {
 
@@ -65,12 +67,16 @@ const ModalInforsPoint = () => {
                   <div className="group-input">
 
                     <div className= "inputs">
-                        <label htmlFor="email">E-mail</label>
+                        <label htmlFor="email" style = {{color: '#ff6666'}}>
+                          E-mail <MdEmail style = {{color: '#ff6666'}} />
+                        </label>
                         <DebounceInput debounceTimeout = {800} type="email" id="email" name = "email"onChange = {() =>{}} />
                     </div>
 
                     <div className="inputs">
-                        <label htmlFor="whatsapp">Whatsapp</label>
+                        <label htmlFor="whatsapp" style = {{color: '#339999'}}>
+                          Whatsapp <IoLogoWhatsapp style = {{color: '#339999'}} />
+                        </label>
                         <DebounceInput debounceTimeout = {800} type="text" name = "whatsapp" id="whatsapp" onChange = {() => {}} />
                     </div>
 
@@ -102,7 +108,7 @@ const ModalInforsPoint = () => {
               </div>
 
               <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                 
                   <button type="button" className="btn btn-primary">Salvar alterações</button>
               </div>
               

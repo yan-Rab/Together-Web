@@ -3,9 +3,25 @@
     width: 100%;
     height: 100%;
     flex-direction: column;
+    background-color: rgb(224, 224, 248);
+    align-items: center;
 }
 
 .container-my-point header{
+    display: flex;
+    width: 100%;
+    justify-content:left;
+    flex-direction: column;
+}
+
+.container-my-point header span{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    
+}
+
+.container-my-point .infors-primary{
     width: 100%;
     display: flex;
     padding: 10px;
@@ -23,7 +39,16 @@
     flex-wrap: wrap;
 }
 
-.container-my-point header section img{
+.container-my-point section .sectionBody{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.container-my-point .infors-primary section img{
     
     width: 100%;
     border-radius: 10px;
@@ -34,61 +59,69 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 15px;
-    color: white;
+  
+   
     border-radius: 10px;
     margin-bottom: 20px;
-    box-shadow: 2px 2px 2px rgb(127, 167, 219);
-    background-color: rgb(127, 167, 219);
+    
 }
 
 .container-my-point  section legend{
     font-family: Roboto;
+    font-size: 20px;
+    padding: 8px;
 }
 
-.container-my-point header section .infors-point{
+.container-my-point .infors-primary section .infors-point{
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 20px;
     border-radius: 15px;
     width: 100%;
-    background-color: white;
- 
+    
 
 }
 
-.container-my-point header section .container-data{
+.container-my-point .infors-primary section .container-data{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 
 }
 
-.container-my-point header section .container-data .group-data{
+.container-my-point .infors-primary section .container-data .group-data{
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
-    max-width: 200px;
+    max-width: 180px;
     flex-wrap: wrap;
+    padding: 10px;
+    word-wrap: break-word;
 }
 
-.container-my-point header section .container-data .group-data strong{
-    font-size: 20px;
-    font-family: Roboto;
+.container-my-point .infors-primary section .container-data .group-data strong{
+    font-size: 19px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
     color:  rgb(66, 68, 70);
     ;
 }
 
-.container-my-point header section .container-data .group-data p{
+.container-my-point .infors-primary section .container-data .group-data p{
     margin-top: 10px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     color: rgb(88, 88, 88);
 }
 
+.container-my-point .logo{
+    margin-top: 10px;
+    width: 150px;
+    height: 100px;
+}
 
-.container-my-point main{
+.container-my-point .infors-secundary{
     width: 100%;
     display: flex;
    
@@ -99,7 +132,7 @@
     flex-wrap: wrap;
 }
 
-.container-my-point main section .leaflet-container{
+.container-my-point .infors-secundary  .leaflet-container{
     margin-top: 10px;
     width: 100%;
     height: 350px;

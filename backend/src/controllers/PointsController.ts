@@ -4,6 +4,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import Auth from '../auth/Auth';
 
+
 function generateToken(props: {}){
     return jwt.sign(props,Auth.secret, {
          expiresIn: 86400
@@ -107,6 +108,50 @@ class Points{
         const point = points.id;
         const token = generateToken({id: points.id});
         return response.json({message: 'Entrando...',point, token});
+    }
+
+    async updateInforsPrimary(request: Request, response: Response){
+        const {title, id} = request.body;
+        const image = request.file.filename;
+        
+         await knex('points').where('id', id)
+        .update('title', title)
+        .update('image', image);
+
+        
+    }
+
+    async updateInforsSecundary(request: Request, response: Response){
+        const {email, whatsapp, city, uf, id} = request.body;
+        await knex('points').where('id',id)
+        .update('email',email)
+        .update('whatsapp', whatsapp)
+        .update('city', city)
+        .update('uf',uf);
+      
+    }
+
+    async updatePointLocation(request: Request, response: Response){
+        const {latitude, longitude, id} = request.body;
+        await knex('points').where('id',id)
+        .update('latitude', latitude)
+        .update('longitude', longitude);
+
+    }
+
+    async updatePointItems(request: Request, response: Response){
+        const {items, id} = request.body;
+        
+        const serializedItems = items.map((item: number) => {
+            return{
+                id_point: id,
+                id_item: item
+            }
+        })
+
+        await knex('items_point').where("id_point", id).delete('*');
+        await knex('items_point').insert(serializedItems);
+
     }
 
    
