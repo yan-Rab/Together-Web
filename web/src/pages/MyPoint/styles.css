@@ -5,21 +5,16 @@
     flex-direction: column;
     background-color: rgb(224, 224, 248);
     align-items: center;
+    overflow: auto;
 }
 
 .container-my-point header{
     display: flex;
     width: 100%;
-    justify-content:left;
-    flex-direction: column;
+    justify-content:space-between;
+    margin-bottom: 40px;
 }
 
-.container-my-point header span{
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    
-}
 
 .container-my-point .infors-primary{
     width: 100%;
@@ -59,11 +54,8 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-  
-   
     border-radius: 10px;
     margin-bottom: 20px;
-    
 }
 
 .container-my-point  section legend{
@@ -79,7 +71,7 @@
     padding: 20px;
     border-radius: 15px;
     width: 100%;
-    
+    flex-wrap: wrap;
 
 }
 
@@ -87,17 +79,14 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-
 }
 
 .container-my-point .infors-primary section .container-data .group-data{
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
-    max-width: 180px;
     flex-wrap: wrap;
-    padding: 10px;
-    word-wrap: break-word;
+  
 }
 
 .container-my-point .infors-primary section .container-data .group-data strong{
@@ -105,7 +94,7 @@
     font-weight: 500;
     font-family: Arial, Helvetica, sans-serif;
     color:  rgb(66, 68, 70);
-    ;
+    
 }
 
 .container-my-point .infors-primary section .container-data .group-data p{
@@ -124,11 +113,8 @@
 .container-my-point .infors-secundary{
     width: 100%;
     display: flex;
-   
     display: flex;
-    padding: 10px;
     justify-content: space-evenly;
-    
     flex-wrap: wrap;
 }
 
@@ -140,14 +126,3 @@
     border-radius: 8px;
     margin-bottom: 20px;
 }
-
-
-
-
-
-
-
-
-
-
- 

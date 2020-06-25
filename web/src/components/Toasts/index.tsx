@@ -16,20 +16,28 @@ export default class Toasts {
     success(icon: string, text: string){ 
 
         return toast.success(BodyToastNotification(icon,text),{
-            position: 'top-center',
+            position: 'top-right',
             className: 'toast-success',
             closeButton: true,
-            draggable: true
+            draggable: true,
+            hideProgressBar: false,
+            pauseOnHover: false,
+            autoClose: 2500,
+            closeOnClick: true,
         })
     }
 
     error(icon: string, text: string){
         return toast.error(() => BodyToastNotification(icon,text),{
-            position: 'top-center',
+            position: 'bottom-right',
             className: 'toast-error',
             closeButton: true,
             autoClose: 3000,
             draggable: true,
+            closeOnClick: true,
+            pauseOnHover: false,
+            hideProgressBar:false,
+
         })
     }
 }

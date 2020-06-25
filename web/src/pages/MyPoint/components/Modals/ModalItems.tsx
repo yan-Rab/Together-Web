@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Items from '../../../../components/Items/index';
+import success from '../../../../assets/tick.png';
+import Toasts from '../../../../components/Toasts/index';
 
-
+import api from '../../../../services/api';
+const toast = new Toasts();
 interface Props {
     itemsPoint : number[]
 }
@@ -9,10 +12,18 @@ interface Props {
 const ModalItems: React.FC<Props> = ({itemsPoint}) => {
 
     const [selectedItems, setSelectedItems] = useState<number[]>(itemsPoint);
-
+ 
     useEffect(() => {
-        console.log(selectedItems)
+       
     },[selectedItems]);
+
+   async function handleUpdateItems(){
+       const id = localStorage.getItem('pointId');
+       selectedItems.splice(0,1);
+       console.log(selectedItems)
+        const response = await api.put('/pointItems', {items:selectedItems,id});
+        toast.success(success,response.data.message)
+    }
 
     return(
         <div className="modal fade" id="ModalItems"  
@@ -38,7 +49,7 @@ const ModalItems: React.FC<Props> = ({itemsPoint}) => {
 
               <div className="modal-footer">
                   
-                  <button type="button" className="btn btn-primary" data-dismiss = 'modal'>Salvar alterações</button>
+                  <button type="button" onClick = {handleUpdateItems} className="btn btn-primary" data-dismiss = 'modal'>Salvar alterações</button>
               </div>
               
               </div>

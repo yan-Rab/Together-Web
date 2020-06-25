@@ -4,7 +4,6 @@ import crypto from 'crypto';
 import { Request } from 'express';
 
 interface File{
-    
     mimetype: string,
 }
 

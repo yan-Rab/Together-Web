@@ -3,7 +3,7 @@ import {IoLogoWhatsapp} from 'react-icons/io';
 import {MdEmail} from 'react-icons/md';
 
 interface Props{
-    DataPoint: {
+    dataPoint: {
         whatsapp: string,
         email: string,
         city: string,
@@ -11,7 +11,7 @@ interface Props{
     }
 }
 
-const InforsPoint: React.FC<Props> = ({DataPoint}) => {
+const InforsPoint: React.FC<Props> = ({dataPoint}) => {
     return(
         <section>
 
@@ -31,12 +31,12 @@ const InforsPoint: React.FC<Props> = ({DataPoint}) => {
                           E-mail <MdEmail style = {{color: '#ff6666'}} />
                         </strong>
 
-                        <p>{DataPoint.email}</p>
+                        <p>{dataPoint.email}</p>
                       </div>
 
                       <div className="group-data">
                         <strong style = {{color: '#339999'}}>Whatsapp <IoLogoWhatsapp style = {{color: '#339999'}} /></strong>
-                        <p>{DataPoint.whatsapp}</p>
+                        <p>{dataPoint.whatsapp}</p>
                       </div>
                                         
                   </div>
@@ -45,12 +45,12 @@ const InforsPoint: React.FC<Props> = ({DataPoint}) => {
 
                       <div className = "group-data">
                         <strong>Cidade</strong>
-                        <p>{DataPoint.city}</p>
+                        <p>{dataPoint.city}</p>
                       </div>
                       
                       <div className = "group-data">
                         <strong>Estado</strong>
-                        <p>{DataPoint.uf}</p>
+                        <p>{dataPoint.uf}</p>
                       </div>
                       
                   </div>

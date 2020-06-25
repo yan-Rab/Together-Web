@@ -1,22 +1,22 @@
 import React from 'react';
 
 interface Props{
-    PointTitle: string
-    Pointimage: string
+    pointTitle: string
+    pointImage: string
 }
 
-const ImageData: React.FC<Props> = ({PointTitle, Pointimage}) => {
+const ImageData: React.FC<Props> = ({pointTitle, pointImage}) => {
     return(
         <section>
 
                 <span>
-                    <legend>{PointTitle}</legend>
+                    <legend>{pointTitle}</legend>
                     <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#ModalImage">
                         Editar
                     </button>
                 </span>
                
-                <img src = {`${Pointimage}`} alt=""/>
+                <img src = {`${pointImage}`} alt=""/>
 
         </section>
     )

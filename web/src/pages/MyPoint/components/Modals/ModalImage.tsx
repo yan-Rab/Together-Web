@@ -1,10 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Dropzone from '../../../../components/Dropzone/index';
-import { DebounceInput } from 'react-debounce-input';
-interface Props{
-  setImagePoint: (image: File) => void
-}
-const ModalImage: React.FC<Props> = ({setImagePoint}) => {
+import api from '../../../../services/api';
+import Toasts from '../../../../components/Toasts/index';
+import success from '../../../../assets/tick.png';
+const toast = new Toasts();
+
+const ModalImage = () => {
+
+  const [newImage, setNewImage] = useState<File>();
+
+  async function handleFormValues(){
+  
+    const id = localStorage.getItem('pointId');
+
+    const data = new FormData();
+    
+    if(newImage){
+      data.append('image', newImage)
+    }
+    
+    const response = await api.put(`/dataPointPrimary/${id}`, data);
+    
+    toast.success(success, response.data.message);
+    
+  }
 
   return(
     <div className="modal fade" id="ModalImage"  
@@ -15,28 +34,19 @@ const ModalImage: React.FC<Props> = ({setImagePoint}) => {
           <div className="modal-content">
           
               <div className="modal-header">
-                  <h5 className="modal-title" id="ModalLabel">Nome e Imagem do Ponto</h5>
+                  <h5 className="modal-title" id="ModalLabel">Imagem do Ponto</h5>
                   <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                   </button>
               </div>
-              
+             
               <div className="modal-body">
-                
-                <form>
-                  <div className = "inputs">
-                    <label htmlFor = "title">Nome</label>
-                    <DebounceInput debounceTimeout = {800} id = "title" name = "title" type="text" onChange = {() => {}}/>
-                  </div>
-                </form>
-
-                <br></br>
-                <Dropzone onFileUploaded = {setImagePoint} />
+                <Dropzone onFileUploaded = {setNewImage} />
               </div>
 
               <div className="modal-footer">
                  
-                  <button type="button" className="btn btn-primary">Salvar alterações</button>
+                  <button type="button" onClick = {handleFormValues} className="btn btn-primary">Salvar alterações</button>
               </div>
               
               </div>

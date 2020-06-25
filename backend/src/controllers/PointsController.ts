@@ -111,46 +111,72 @@ class Points{
     }
 
     async updateInforsPrimary(request: Request, response: Response){
-        const {title, id} = request.body;
-        const image = request.file.filename;
-        
-         await knex('points').where('id', id)
-        .update('title', title)
-        .update('image', image);
+        const {id} = request.params;
 
+        try{
+            const image = request.file.filename;
+        
+            await knex('points').where('id', id)
+            .update('image', image);
+
+            return response.json({message: 'Atualizado!'})
+        
+        }catch(error){
+            return response.json({message: "Update error"})
+        }
         
     }
 
     async updateInforsSecundary(request: Request, response: Response){
-        const {email, whatsapp, city, uf, id} = request.body;
-        await knex('points').where('id',id)
-        .update('email',email)
-        .update('whatsapp', whatsapp)
-        .update('city', city)
-        .update('uf',uf);
+        const {email, whatsapp, city, uf, id,title} = request.body;
+
+        try{
+            await knex('points').where('id',id)
+            .update('email',email)
+            .update('whatsapp', whatsapp)
+            .update('city', city)
+            .update('uf',uf)
+            .update('title',title);
+            return response.json({message: 'Atualizado!'});
+
+        }catch(error){
+            return response.json({message: 'Update error!'})
+        }
+       
       
     }
 
     async updatePointLocation(request: Request, response: Response){
         const {latitude, longitude, id} = request.body;
+        try{
         await knex('points').where('id',id)
         .update('latitude', latitude)
         .update('longitude', longitude);
-
+        return response.json({message: 'Atualizado!'})
+        }catch(error){
+            return response.json({message: 'Update Error'})
+        }
     }
 
     async updatePointItems(request: Request, response: Response){
         const {items, id} = request.body;
-        
-        const serializedItems = items.map((item: number) => {
-            return{
-                id_point: id,
-                id_item: item
-            }
-        })
+        try{
+            
+            const serializedItems = items.map((item: number) => {
+                return{
+                    id_point: id,
+                    id_item: item
+                }
+            })
+    
+            await knex('items_point').where("id_point", id).delete('*');
+            await knex('items_point').insert(serializedItems);
+            return response.json({message: 'Atualizado!'})
 
-        await knex('items_point').where("id_point", id).delete('*');
-        await knex('items_point').insert(serializedItems);
+        }catch(error){
+            return response.json({message: 'Update error'})
+        }
+       
 
     }
 

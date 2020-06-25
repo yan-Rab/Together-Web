@@ -13,12 +13,7 @@ interface Props{
  
 }
 
-
-
-
 const ItemsPoint: React.FC<Props> = ({itemsPoint}) => {
-   
-   
 
     return(
         <div className = 'sectionBody'>

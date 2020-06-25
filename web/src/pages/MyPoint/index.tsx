@@ -14,6 +14,10 @@ import ModalImage from './components/Modals/ModalImage';
 import ModalInforsPoint from './components/Modals/ModalInforsPoint';
 import ModalItems from './components/Modals/ModalItems';
 
+
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 interface PointsResponse{
     image_uri: string,
     point: {
@@ -44,8 +48,6 @@ const MyPoint = () => {
  
     const [image, setImage] = useState('0');
 
-    const [UpdateImage, setUpdateImage] = useState<File>()
-
     const [inforsPoint, setInforsPoint] = useState({
         title: '',
         email: '',
@@ -58,11 +60,6 @@ const MyPoint = () => {
     })
 
     const [items, setItems] = useState([{} as ItemData]);
-
-
-    useEffect(() => {
-        console.log(UpdateImage)
-    }, [UpdateImage])
 
     useEffect(() => {
         const id = localStorage.getItem("pointId");
@@ -86,22 +83,18 @@ const MyPoint = () => {
         <div className = "container-my-point">
        
                 <header>
-                    <span>
-                        <LinkHome />
-                        <LogOut />
-                    </span>
-                   
-                  
-                    
+                    <LinkHome />
+                    <LogOut /> 
+                        
                 </header>
 
                 <div className = 'infors-primary'>
-                    <ImageData PointTitle = {inforsPoint.title} Pointimage = {image} />
-                    <ModalImage setImagePoint = {setUpdateImage} />
-                    
+                    <ImageData pointTitle = {inforsPoint.title} pointImage = {image} />
+                    <ModalImage />
 
-                    <InforsPoint DataPoint = {inforsPoint} />
-                    <ModalInforsPoint />
+                    <InforsPoint dataPoint = {inforsPoint} />
+                    
+                    <ModalInforsPoint dataPoint = {inforsPoint}/>
             
                 </div>
             
@@ -122,10 +115,7 @@ const MyPoint = () => {
                     </section>
                     
                 </div>
-           
-       
-
-           
+                <ToastContainer limit = {1} className = "toast-container" />
         </div>
     )
 }

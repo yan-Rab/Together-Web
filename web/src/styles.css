@@ -17,7 +17,7 @@ body{
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
-    padding: 10px;
+    
     align-items: center;
     border-radius: 6px;
     background-color: #0099ff;
@@ -44,7 +44,7 @@ body{
 }
 
 .icon-text{
-    justify-content: left;
+    justify-content: space-evenly;
     display: flex;
     align-items: center;
 
@@ -54,4 +54,8 @@ body{
     margin-right: 10px;
     width: 30px;
     height: 30px;
+}
+
+.icon-text b{
+    margin-right: 10px;
 }

@@ -5,7 +5,7 @@ import './styles.css';
 const LinkHome = () => (
     <Link className = "link-home" to = "/" style = {{textDecoration: 'none'}}>
         
-        <BsBoxArrowInLeft style = {{width: "30px", height: "30px"}} /> 
+        <BsBoxArrowInLeft style = {{width: "25px", height: "25px"}} /> 
         <i>Voltar para Home</i>
        
     </Link>
